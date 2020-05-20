@@ -4,6 +4,15 @@ package grpcghost;
 
 service ghost{
 	rpc diskcheck(diskRequest)               returns (APIResponse);
+	rpc checkdefinition(definitionRequest)   returns (APIResponse);
+	rpc cutover(Empty)                       returns (APIResponse);
+	rpc putpanicflag(Empty)					 returns (APIResponse);
+	rpc cleanup(Empty)					     returns (APIResponse);
+	rpc dryrun(ghostRequest)                 returns (APIResponse);
+	rpc executeNohup(ghostRequest)           returns (APIResponse);
+	rpc interactive(interactiveRequest)      returns (APIResponse);
+	rpc rowcount(definitionRequest)          returns (APIResponse);
+	rpc ibdsize(ibdRequest)                  returns (APIResponse);
 }
 
 message Empty{

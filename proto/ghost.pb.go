@@ -501,12 +501,47 @@ var file_ghost_proto_rawDesc = []byte{
 	0x62, 0x6c, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x74,
 	0x61, 0x62, 0x6c, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x67, 0x68, 0x6f, 0x73,
 	0x74, 0x63, 0x6f, 0x6d, 0x6d, 0x61, 0x6e, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c,
-	0x67, 0x68, 0x6f, 0x73, 0x74, 0x63, 0x6f, 0x6d, 0x6d, 0x61, 0x6e, 0x64, 0x32, 0x44, 0x0a, 0x05,
-	0x67, 0x68, 0x6f, 0x73, 0x74, 0x12, 0x3b, 0x0a, 0x09, 0x64, 0x69, 0x73, 0x6b, 0x63, 0x68, 0x65,
-	0x63, 0x6b, 0x12, 0x16, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e, 0x64,
-	0x69, 0x73, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x67, 0x72, 0x70,
+	0x67, 0x68, 0x6f, 0x73, 0x74, 0x63, 0x6f, 0x6d, 0x6d, 0x61, 0x6e, 0x64, 0x32, 0xef, 0x04, 0x0a,
+	0x05, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x12, 0x3b, 0x0a, 0x09, 0x64, 0x69, 0x73, 0x6b, 0x63, 0x68,
+	0x65, 0x63, 0x6b, 0x12, 0x16, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e,
+	0x64, 0x69, 0x73, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x67, 0x72,
+	0x70, 0x63, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e, 0x41, 0x50, 0x49, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x47, 0x0a, 0x0f, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x64, 0x65, 0x66, 0x69,
+	0x6e, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x1c, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x67, 0x68, 0x6f,
+	0x73, 0x74, 0x2e, 0x64, 0x65, 0x66, 0x69, 0x6e, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x67, 0x68, 0x6f, 0x73, 0x74,
+	0x2e, 0x41, 0x50, 0x49, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x33, 0x0a, 0x07,
+	0x63, 0x75, 0x74, 0x6f, 0x76, 0x65, 0x72, 0x12, 0x10, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x67, 0x68,
+	0x6f, 0x73, 0x74, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x16, 0x2e, 0x67, 0x72, 0x70, 0x63,
+	0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e, 0x41, 0x50, 0x49, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x38, 0x0a, 0x0c, 0x70, 0x75, 0x74, 0x70, 0x61, 0x6e, 0x69, 0x63, 0x66, 0x6c, 0x61,
+	0x67, 0x12, 0x10, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e, 0x45, 0x6d,
+	0x70, 0x74, 0x79, 0x1a, 0x16, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e,
+	0x41, 0x50, 0x49, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x33, 0x0a, 0x07, 0x63,
+	0x6c, 0x65, 0x61, 0x6e, 0x75, 0x70, 0x12, 0x10, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x67, 0x68, 0x6f,
+	0x73, 0x74, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x16, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x67,
+	0x68, 0x6f, 0x73, 0x74, 0x2e, 0x41, 0x50, 0x49, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x39, 0x0a, 0x06, 0x64, 0x72, 0x79, 0x72, 0x75, 0x6e, 0x12, 0x17, 0x2e, 0x67, 0x72, 0x70,
+	0x63, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e,
+	0x41, 0x50, 0x49, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3f, 0x0a, 0x0c, 0x65,
+	0x78, 0x65, 0x63, 0x75, 0x74, 0x65, 0x4e, 0x6f, 0x68, 0x75, 0x70, 0x12, 0x17, 0x2e, 0x67, 0x72,
+	0x70, 0x63, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x67, 0x68, 0x6f, 0x73, 0x74,
+	0x2e, 0x41, 0x50, 0x49, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x44, 0x0a, 0x0b,
+	0x69, 0x6e, 0x74, 0x65, 0x72, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x12, 0x1d, 0x2e, 0x67, 0x72,
+	0x70, 0x63, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x61, 0x63, 0x74,
+	0x69, 0x76, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x67, 0x72, 0x70,
 	0x63, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e, 0x41, 0x50, 0x49, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x73, 0x65, 0x12, 0x40, 0x0a, 0x08, 0x72, 0x6f, 0x77, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x1c,
+	0x2e, 0x67, 0x72, 0x70, 0x63, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e, 0x64, 0x65, 0x66, 0x69, 0x6e,
+	0x69, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x67,
+	0x72, 0x70, 0x63, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e, 0x41, 0x50, 0x49, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x38, 0x0a, 0x07, 0x69, 0x62, 0x64, 0x73, 0x69, 0x7a, 0x65, 0x12,
+	0x15, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x67, 0x68, 0x6f, 0x73, 0x74, 0x2e, 0x69, 0x62, 0x64, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x67, 0x68, 0x6f,
+	0x73, 0x74, 0x2e, 0x41, 0x50, 0x49, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -533,13 +568,31 @@ var file_ghost_proto_goTypes = []interface{}{
 	(*InteractiveRequest)(nil), // 7: grpcghost.interactiveRequest
 }
 var file_ghost_proto_depIdxs = []int32{
-	3, // 0: grpcghost.ghost.diskcheck:input_type -> grpcghost.diskRequest
-	1, // 1: grpcghost.ghost.diskcheck:output_type -> grpcghost.APIResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	3,  // 0: grpcghost.ghost.diskcheck:input_type -> grpcghost.diskRequest
+	4,  // 1: grpcghost.ghost.checkdefinition:input_type -> grpcghost.definitionRequest
+	0,  // 2: grpcghost.ghost.cutover:input_type -> grpcghost.Empty
+	0,  // 3: grpcghost.ghost.putpanicflag:input_type -> grpcghost.Empty
+	0,  // 4: grpcghost.ghost.cleanup:input_type -> grpcghost.Empty
+	6,  // 5: grpcghost.ghost.dryrun:input_type -> grpcghost.ghostRequest
+	6,  // 6: grpcghost.ghost.executeNohup:input_type -> grpcghost.ghostRequest
+	7,  // 7: grpcghost.ghost.interactive:input_type -> grpcghost.interactiveRequest
+	4,  // 8: grpcghost.ghost.rowcount:input_type -> grpcghost.definitionRequest
+	5,  // 9: grpcghost.ghost.ibdsize:input_type -> grpcghost.ibdRequest
+	1,  // 10: grpcghost.ghost.diskcheck:output_type -> grpcghost.APIResponse
+	1,  // 11: grpcghost.ghost.checkdefinition:output_type -> grpcghost.APIResponse
+	1,  // 12: grpcghost.ghost.cutover:output_type -> grpcghost.APIResponse
+	1,  // 13: grpcghost.ghost.putpanicflag:output_type -> grpcghost.APIResponse
+	1,  // 14: grpcghost.ghost.cleanup:output_type -> grpcghost.APIResponse
+	1,  // 15: grpcghost.ghost.dryrun:output_type -> grpcghost.APIResponse
+	1,  // 16: grpcghost.ghost.executeNohup:output_type -> grpcghost.APIResponse
+	1,  // 17: grpcghost.ghost.interactive:output_type -> grpcghost.APIResponse
+	1,  // 18: grpcghost.ghost.rowcount:output_type -> grpcghost.APIResponse
+	1,  // 19: grpcghost.ghost.ibdsize:output_type -> grpcghost.APIResponse
+	10, // [10:20] is the sub-list for method output_type
+	0,  // [0:10] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_ghost_proto_init() }
@@ -678,6 +731,15 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type GhostClient interface {
 	Diskcheck(ctx context.Context, in *DiskRequest, opts ...grpc.CallOption) (*APIResponse, error)
+	Checkdefinition(ctx context.Context, in *DefinitionRequest, opts ...grpc.CallOption) (*APIResponse, error)
+	Cutover(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*APIResponse, error)
+	Putpanicflag(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*APIResponse, error)
+	Cleanup(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*APIResponse, error)
+	Dryrun(ctx context.Context, in *GhostRequest, opts ...grpc.CallOption) (*APIResponse, error)
+	ExecuteNohup(ctx context.Context, in *GhostRequest, opts ...grpc.CallOption) (*APIResponse, error)
+	Interactive(ctx context.Context, in *InteractiveRequest, opts ...grpc.CallOption) (*APIResponse, error)
+	Rowcount(ctx context.Context, in *DefinitionRequest, opts ...grpc.CallOption) (*APIResponse, error)
+	Ibdsize(ctx context.Context, in *IbdRequest, opts ...grpc.CallOption) (*APIResponse, error)
 }
 
 type ghostClient struct {
@@ -697,9 +759,99 @@ func (c *ghostClient) Diskcheck(ctx context.Context, in *DiskRequest, opts ...gr
 	return out, nil
 }
 
+func (c *ghostClient) Checkdefinition(ctx context.Context, in *DefinitionRequest, opts ...grpc.CallOption) (*APIResponse, error) {
+	out := new(APIResponse)
+	err := c.cc.Invoke(ctx, "/grpcghost.ghost/checkdefinition", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ghostClient) Cutover(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*APIResponse, error) {
+	out := new(APIResponse)
+	err := c.cc.Invoke(ctx, "/grpcghost.ghost/cutover", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ghostClient) Putpanicflag(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*APIResponse, error) {
+	out := new(APIResponse)
+	err := c.cc.Invoke(ctx, "/grpcghost.ghost/putpanicflag", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ghostClient) Cleanup(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*APIResponse, error) {
+	out := new(APIResponse)
+	err := c.cc.Invoke(ctx, "/grpcghost.ghost/cleanup", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ghostClient) Dryrun(ctx context.Context, in *GhostRequest, opts ...grpc.CallOption) (*APIResponse, error) {
+	out := new(APIResponse)
+	err := c.cc.Invoke(ctx, "/grpcghost.ghost/dryrun", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ghostClient) ExecuteNohup(ctx context.Context, in *GhostRequest, opts ...grpc.CallOption) (*APIResponse, error) {
+	out := new(APIResponse)
+	err := c.cc.Invoke(ctx, "/grpcghost.ghost/executeNohup", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ghostClient) Interactive(ctx context.Context, in *InteractiveRequest, opts ...grpc.CallOption) (*APIResponse, error) {
+	out := new(APIResponse)
+	err := c.cc.Invoke(ctx, "/grpcghost.ghost/interactive", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ghostClient) Rowcount(ctx context.Context, in *DefinitionRequest, opts ...grpc.CallOption) (*APIResponse, error) {
+	out := new(APIResponse)
+	err := c.cc.Invoke(ctx, "/grpcghost.ghost/rowcount", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ghostClient) Ibdsize(ctx context.Context, in *IbdRequest, opts ...grpc.CallOption) (*APIResponse, error) {
+	out := new(APIResponse)
+	err := c.cc.Invoke(ctx, "/grpcghost.ghost/ibdsize", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // GhostServer is the server API for Ghost service.
 type GhostServer interface {
 	Diskcheck(context.Context, *DiskRequest) (*APIResponse, error)
+	Checkdefinition(context.Context, *DefinitionRequest) (*APIResponse, error)
+	Cutover(context.Context, *Empty) (*APIResponse, error)
+	Putpanicflag(context.Context, *Empty) (*APIResponse, error)
+	Cleanup(context.Context, *Empty) (*APIResponse, error)
+	Dryrun(context.Context, *GhostRequest) (*APIResponse, error)
+	ExecuteNohup(context.Context, *GhostRequest) (*APIResponse, error)
+	Interactive(context.Context, *InteractiveRequest) (*APIResponse, error)
+	Rowcount(context.Context, *DefinitionRequest) (*APIResponse, error)
+	Ibdsize(context.Context, *IbdRequest) (*APIResponse, error)
 }
 
 // UnimplementedGhostServer can be embedded to have forward compatible implementations.
@@ -708,6 +860,33 @@ type UnimplementedGhostServer struct {
 
 func (*UnimplementedGhostServer) Diskcheck(context.Context, *DiskRequest) (*APIResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Diskcheck not implemented")
+}
+func (*UnimplementedGhostServer) Checkdefinition(context.Context, *DefinitionRequest) (*APIResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Checkdefinition not implemented")
+}
+func (*UnimplementedGhostServer) Cutover(context.Context, *Empty) (*APIResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Cutover not implemented")
+}
+func (*UnimplementedGhostServer) Putpanicflag(context.Context, *Empty) (*APIResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Putpanicflag not implemented")
+}
+func (*UnimplementedGhostServer) Cleanup(context.Context, *Empty) (*APIResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Cleanup not implemented")
+}
+func (*UnimplementedGhostServer) Dryrun(context.Context, *GhostRequest) (*APIResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Dryrun not implemented")
+}
+func (*UnimplementedGhostServer) ExecuteNohup(context.Context, *GhostRequest) (*APIResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ExecuteNohup not implemented")
+}
+func (*UnimplementedGhostServer) Interactive(context.Context, *InteractiveRequest) (*APIResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Interactive not implemented")
+}
+func (*UnimplementedGhostServer) Rowcount(context.Context, *DefinitionRequest) (*APIResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Rowcount not implemented")
+}
+func (*UnimplementedGhostServer) Ibdsize(context.Context, *IbdRequest) (*APIResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Ibdsize not implemented")
 }
 
 func RegisterGhostServer(s *grpc.Server, srv GhostServer) {
@@ -732,6 +911,168 @@ func _Ghost_Diskcheck_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Ghost_Checkdefinition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DefinitionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GhostServer).Checkdefinition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcghost.ghost/Checkdefinition",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GhostServer).Checkdefinition(ctx, req.(*DefinitionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ghost_Cutover_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GhostServer).Cutover(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcghost.ghost/Cutover",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GhostServer).Cutover(ctx, req.(*Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ghost_Putpanicflag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GhostServer).Putpanicflag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcghost.ghost/Putpanicflag",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GhostServer).Putpanicflag(ctx, req.(*Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ghost_Cleanup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GhostServer).Cleanup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcghost.ghost/Cleanup",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GhostServer).Cleanup(ctx, req.(*Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ghost_Dryrun_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GhostRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GhostServer).Dryrun(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcghost.ghost/Dryrun",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GhostServer).Dryrun(ctx, req.(*GhostRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ghost_ExecuteNohup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GhostRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GhostServer).ExecuteNohup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcghost.ghost/ExecuteNohup",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GhostServer).ExecuteNohup(ctx, req.(*GhostRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ghost_Interactive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InteractiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GhostServer).Interactive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcghost.ghost/Interactive",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GhostServer).Interactive(ctx, req.(*InteractiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ghost_Rowcount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DefinitionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GhostServer).Rowcount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcghost.ghost/Rowcount",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GhostServer).Rowcount(ctx, req.(*DefinitionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Ghost_Ibdsize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IbdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GhostServer).Ibdsize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpcghost.ghost/Ibdsize",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GhostServer).Ibdsize(ctx, req.(*IbdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Ghost_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "grpcghost.ghost",
 	HandlerType: (*GhostServer)(nil),
@@ -739,6 +1080,42 @@ var _Ghost_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "diskcheck",
 			Handler:    _Ghost_Diskcheck_Handler,
+		},
+		{
+			MethodName: "checkdefinition",
+			Handler:    _Ghost_Checkdefinition_Handler,
+		},
+		{
+			MethodName: "cutover",
+			Handler:    _Ghost_Cutover_Handler,
+		},
+		{
+			MethodName: "putpanicflag",
+			Handler:    _Ghost_Putpanicflag_Handler,
+		},
+		{
+			MethodName: "cleanup",
+			Handler:    _Ghost_Cleanup_Handler,
+		},
+		{
+			MethodName: "dryrun",
+			Handler:    _Ghost_Dryrun_Handler,
+		},
+		{
+			MethodName: "executeNohup",
+			Handler:    _Ghost_ExecuteNohup_Handler,
+		},
+		{
+			MethodName: "interactive",
+			Handler:    _Ghost_Interactive_Handler,
+		},
+		{
+			MethodName: "rowcount",
+			Handler:    _Ghost_Rowcount_Handler,
+		},
+		{
+			MethodName: "ibdsize",
+			Handler:    _Ghost_Ibdsize_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
