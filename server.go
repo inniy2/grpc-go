@@ -32,11 +32,22 @@ import (
 	"os/exec"
 	"os"
 	"path/filepath"
+	"gopkg.in/yaml.v2"
 )
 
-const (
-	port = ":9090"
-)
+type Config struct {
+    Server struct {
+        Port string `yaml:"port"`
+    } `yaml:"server"`
+    Database struct {
+        Username string `yaml:"user"`
+        Password string `yaml:"pass"`
+    } `yaml:"database"`
+}
+
+//const (
+//	port = ":9090"
+//)
 
 type Tag struct {
     Table   string    `json:"table"`
@@ -64,7 +75,20 @@ func (s *server) Diskcheck(ctx context.Context, in *pb.DiskRequest) (*pb.APIResp
 func (s *server) Checkdefinition(ctx context.Context, in *pb.DefinitionRequest) (*pb.APIResponse, error) {
 	log.Printf("Checkdefinition Received: "+ in.Schemaname)
 	log.Printf("Checkdefinition Received: "+ in.Tablename)
-	db, err := sql.Open("mysql", "root:12345678@tcp(localhost:3306)/"+in.Schemaname)
+	f, err := os.Open("config.yaml")
+	if err != nil {
+	    //panic(err.Error())
+		return &pb.APIResponse{Responsemessage: "N/A", Responsecode: 1}, nil
+	}
+	defer f.Close()
+	var cfg Config
+	decoder := yaml.NewDecoder(f)
+	err = decoder.Decode(&cfg)
+	if err != nil {
+	    //panic(err.Error())
+		return &pb.APIResponse{Responsemessage: "N/A", Responsecode: 1}, nil
+	}
+	db, err := sql.Open("mysql", cfg.Database.Username+":"+cfg.Database.Password+"@tcp(localhost:3306)/"+in.Schemaname)
 	if err != nil {
 		//panic(err.Error())
 		return &pb.APIResponse{Responsemessage: "N/A", Responsecode: 1}, nil
@@ -242,7 +266,20 @@ func (s *server) Interactive(ctx context.Context, in *pb.InteractiveRequest) (*p
 func (s *server) Rowcount(ctx context.Context, in *pb.DefinitionRequest) (*pb.APIResponse, error) {
 	log.Printf("Received: "+ in.Schemaname)
 	log.Printf("Received: "+ in.Tablename)
-	db, err := sql.Open("mysql", "root:12345678@tcp(localhost:3306)/"+in.Schemaname)
+	f, err := os.Open("config.yaml")
+	if err != nil {
+	    //panic(err.Error())
+		return &pb.APIResponse{Responsemessage: "N/A", Responsecode: 1}, nil
+	}
+	defer f.Close()
+	var cfg Config
+	decoder := yaml.NewDecoder(f)
+	err = decoder.Decode(&cfg)
+	if err != nil {
+	    //panic(err.Error())
+		return &pb.APIResponse{Responsemessage: "N/A", Responsecode: 1}, nil
+	}
+	db, err := sql.Open("mysql", cfg.Database.Username+":"+cfg.Database.Password+"@tcp(localhost:3306)/"+in.Schemaname)
 	if err != nil {
 		//panic(err.Error())
 		return &pb.APIResponse{Responsemessage: "N/A", Responsecode: 1}, nil
@@ -289,8 +326,21 @@ func (s *server) Ibdsize(ctx context.Context, in *pb.IbdRequest) (*pb.APIRespons
 
 
 func main() {
-	log.Printf("port"+port)
-	lis, err := net.Listen("tcp", port)
+	f, err := os.Open("config.yaml")
+	if err != nil {
+	    panic(err.Error())
+	}
+	defer f.Close()
+
+	var cfg Config
+	decoder := yaml.NewDecoder(f)
+	err = decoder.Decode(&cfg)
+	if err != nil {
+	    panic(err.Error())
+	}
+
+	log.Printf("port: "+cfg.Server.Port)
+	lis, err := net.Listen("tcp", ":"+cfg.Server.Port)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}

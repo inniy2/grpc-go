@@ -22,6 +22,7 @@ go get -u google.golang.org/grpc
 go get -u github.com/golang/protobuf/protoc-gen-go
 
 go get -u github.com/go-sql-driver/mysql
+go get gopkg.in/yaml.v2
 
 vim ~/.bashrc
 
@@ -43,3 +44,13 @@ go build server.go
 
 # For local test
 sudo lxc file push server u2/root/server
+
+# config.yaml
+# Server configurations
+server:
+  port: 9090
+
+# database configurations
+database:
+  user: root
+  pass: 12345678
