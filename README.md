@@ -39,3 +39,7 @@ protoc -I proto/ proto/ghost.proto --go_out=plugins=grpc:proto
 
 # build
 go build server.go
+
+
+# For local test
+sudo lxc file push server u2/root/server

@@ -64,14 +64,16 @@ func (s *server) Diskcheck(ctx context.Context, in *pb.DiskRequest) (*pb.APIResp
 func (s *server) Checkdefinition(ctx context.Context, in *pb.DefinitionRequest) (*pb.APIResponse, error) {
 	log.Printf("Checkdefinition Received: "+ in.Schemaname)
 	log.Printf("Checkdefinition Received: "+ in.Tablename)
-	db, err := sql.Open("mysql", "root:12345678@tcp(10.145.239.38:3306)/"+in.Schemaname)
+	db, err := sql.Open("mysql", "root:12345678@tcp(localhost:3306)/"+in.Schemaname)
 	if err != nil {
-        panic(err.Error())
+		//panic(err.Error())
+		return &pb.APIResponse{Responsemessage: "N/A", Responsecode: 1}, nil
 	}
 	defer db.Close()
 	results, err := db.Query("show create table "+in.Schemaname+"."+in.Tablename)
 	if err != nil {
-        panic(err.Error())
+		//panic(err.Error())
+		return &pb.APIResponse{Responsemessage: "N/A", Responsecode: 1}, nil
 	}
 	var defintion string = "";
 	for results.Next() {
@@ -79,7 +81,8 @@ func (s *server) Checkdefinition(ctx context.Context, in *pb.DefinitionRequest) 
         // for each row, scan the result into our tag composite object
         err = results.Scan(&tag.Table, &tag.CreateTable)
         if err != nil {
-            panic(err.Error()) // proper error handling instead of panic in your app
+			//panic(err.Error()) // proper error handling instead of panic in your app
+			return &pb.APIResponse{Responsemessage: "N/A", Responsecode: 1}, nil
         }
                 // and then print out the tag's Name attribute
 		log.Printf(tag.Table)
@@ -117,48 +120,138 @@ func (s *server) Cleanup(ctx context.Context, in *pb.Empty) (*pb.APIResponse, er
 	}
 	files, err := filepath.Glob("/tmp/gh-ost.*.*.sock")
 	if err != nil {
-		panic(err)
+		//panic(err)
+		return &pb.APIResponse{Responsemessage: "Clean up failed", Responsecode: 1}, nil
 	}
 	for _, f := range files {
 		if err := os.Remove(f); err != nil {
-			panic(err)
+			//panic(err)
+			return &pb.APIResponse{Responsemessage: "Clean up failed", Responsecode: 1}, nil
 		}
 	}
 	return &pb.APIResponse{Responsemessage: "Cleanup ", Responsecode: 0}, nil
 }
 
 func (s *server) Dryrun(ctx context.Context, in *pb.GhostRequest) (*pb.APIResponse, error) {
-	log.Printf("Received: "+ in.Schemaname)
-	log.Printf("Received: "+ in.Tablename)
-	log.Printf("Received: "+ in.Statement)
-	return &pb.APIResponse{Responsemessage: "Dryrun ", Responsecode: 0}, nil
+	log.Printf("Dryrun Received: "+ in.Schemaname)
+	log.Printf("Dryrun Received: "+ in.Tablename)
+	log.Printf("Dryrun Received: "+ in.Statement)
+	info, err := os.Stat("/tmp/gh-ost."+in.Schemaname+"."+in.Tablename+".sock")
+	if os.IsNotExist(err) {
+		var binary string     = "/usr/bin/gh-ost"
+		var conf string       = "/etc/mysql/debian.cnf"
+		out, err := exec.Command(binary,
+			"--max-load=Threads_running=50",             // 1
+			"--critical-load=Threads_running=1500",      // 2
+			"--chunk-size=500",                          // 3
+			"--max-lag-millis=1500",                     // 4
+			"--conf="+conf,                              // 5
+			"--host=127.0.0.1",                          // 6
+			"--allow-on-master",                         // 7  *
+			"--approve-renamed-columns",                 // 8  *
+			"--database="+in.Schemaname,                 // 9
+			"--table="+in.Tablename,                     // 10
+			"--alter="+in.Statement,                     // 11
+			"--switch-to-rbr",                           // 12
+			"--cut-over=default",                        // 13
+			"--exact-rowcount",                          // 14
+			"--concurrent-rowcount",                     // 15
+			"--default-retries=120",                     // 16
+			"--timestamp-old-table",                     // 17
+			"--panic-flag-file=/tmp/ghost.panic.flag",   // 18
+			"--postpone-cut-over-flag-file=/tmp/ghost.postpone.flag", // 19
+			"--initially-drop-ghost-table",              // 20 *
+			"--verbose").CombinedOutput()
+		if err != nil {
+			//log.Fatal(err)
+		}
+		log.Printf("Dryrun finished with code: %v", err)
+        return &pb.APIResponse{Responsemessage: string(out), Responsecode: 0}, nil
+    }else {
+		if (info.IsDir()){
+			log.Printf("Directory")
+		}
+		return &pb.APIResponse{Responsemessage: "Ghost socket file already exists.", Responsecode: 1}, nil
+	}
+
 }
 
-func (s *server) ExecuteNohup(ctx context.Context, in *pb.GhostRequest) (*pb.APIResponse, error) {
+func (s *server) execute(ctx context.Context, in *pb.GhostRequest) (*pb.APIResponse, error) {
 	log.Printf("Received: "+ in.Schemaname)
 	log.Printf("Received: "+ in.Tablename)
 	log.Printf("Received: "+ in.Statement)
 	return &pb.APIResponse{Responsemessage: "ExecuteNohup ", Responsecode: 0}, nil
 }
 
+func (s *server) ExecuteNohup(ctx context.Context, in *pb.GhostRequest) (*pb.APIResponse, error) {
+	log.Printf("Received: "+ in.Schemaname)
+	log.Printf("Received: "+ in.Tablename)
+	log.Printf("Received: "+ in.Statement)
+	info, err := os.Stat("/tmp/gh-ost."+in.Schemaname+"."+in.Tablename+".sock")
+	if os.IsNotExist(err) {
+		var binary string     = "/usr/bin/gh-ost"
+		var conf string       = "/etc/mysql/debian.cnf"
+		out, err := exec.Command(binary,
+			"--max-load=Threads_running=50",             // 1
+			"--critical-load=Threads_running=1500",      // 2
+			"--chunk-size=500",                          // 3
+			"--max-lag-millis=1500",                     // 4
+			"--conf="+conf,                              // 5
+			"--host=127.0.0.1",                          // 6
+			"--allow-on-master",                         // 7  *
+			"--approve-renamed-columns",                 // 8  *
+			"--database="+in.Schemaname,                 // 9
+			"--table="+in.Tablename,                     // 10
+			"--alter="+in.Statement,                     // 11
+			"--switch-to-rbr",                           // 12
+			"--cut-over=default",                        // 13
+			"--exact-rowcount",                          // 14
+			"--concurrent-rowcount",                     // 15
+			"--default-retries=120",                     // 16
+			"--timestamp-old-table",                     // 17
+			"--panic-flag-file=/tmp/ghost.panic.flag",   // 18
+			"--postpone-cut-over-flag-file=/tmp/ghost.postpone.flag", // 19
+			"--initially-drop-ghost-table",              // 20 *
+			"--verbose",                                 // 21
+			"--execute").CombinedOutput()
+		if err != nil {
+			//log.Fatal(err)
+		}
+		log.Printf("Execution finished with code: %v", err)
+        return &pb.APIResponse{Responsemessage: string(out), Responsecode: 0}, nil
+    }else {
+		if (info.IsDir()){
+			log.Printf("Directory")
+		}
+		return &pb.APIResponse{Responsemessage: "Ghost socket file already exists.", Responsecode: 1}, nil
+	}
+}
+
 func (s *server) Interactive(ctx context.Context, in *pb.InteractiveRequest) (*pb.APIResponse, error) {
 	log.Printf("Received: "+ in.Schemaname)
 	log.Printf("Received: "+ in.Tablename)
 	log.Printf("Received: "+ in.Ghostcommand)
-	return &pb.APIResponse{Responsemessage: "Interactive ", Responsecode: 0}, nil
+	cmd := "echo "+in.Ghostcommand+" | nc -U /tmp/gh-ost."+in.Schemaname+"."+in.Tablename+".sock"
+	out, err := exec.Command("bash","-c",cmd).CombinedOutput()
+	if err != nil {
+		return &pb.APIResponse{Responsemessage: string(out), Responsecode: 1}, nil
+	}
+	return &pb.APIResponse{Responsemessage: string(out), Responsecode: 0}, nil
 }
 
 func (s *server) Rowcount(ctx context.Context, in *pb.DefinitionRequest) (*pb.APIResponse, error) {
 	log.Printf("Received: "+ in.Schemaname)
 	log.Printf("Received: "+ in.Tablename)
-	db, err := sql.Open("mysql", "root:12345678@tcp(10.145.239.38:3306)/"+in.Schemaname)
+	db, err := sql.Open("mysql", "root:12345678@tcp(localhost:3306)/"+in.Schemaname)
 	if err != nil {
-        panic(err.Error())
+		//panic(err.Error())
+		return &pb.APIResponse{Responsemessage: "N/A", Responsecode: 1}, nil
 	}
 	defer db.Close()
 	results, err := db.Query("SELECT TABLE_ROWS FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '"+in.Schemaname+"' AND TABLE_NAME = '"+in.Tablename+"'")
 	if err != nil {
-        panic(err.Error())
+		//panic(err.Error())
+		return &pb.APIResponse{Responsemessage: "N/A", Responsecode: 1}, nil
 	}
 
 	var tableRow string = "";
@@ -167,7 +260,8 @@ func (s *server) Rowcount(ctx context.Context, in *pb.DefinitionRequest) (*pb.AP
         // for each row, scan the result into our tag composite object
         err = results.Scan(&tag.TableRow)
         if err != nil {
-            panic(err.Error()) // proper error handling instead of panic in your app
+			//panic(err.Error()) // proper error handling instead of panic in your app
+			return &pb.APIResponse{Responsemessage: "N/A", Responsecode: 1}, nil
         }
                 // and then print out the tag's Name attribute
 		log.Printf(tag.TableRow)
@@ -183,7 +277,8 @@ func (s *server) Ibdsize(ctx context.Context, in *pb.IbdRequest) (*pb.APIRespons
 	log.Printf("Received: "+ in.Tablename)
 	fi, err := os.Stat(in.Dir+"/"+in.Schemaname+"/"+in.Tablename+".ibd")
 	if err != nil {
-	    panic(err.Error())
+		//panic(err.Error())
+		return &pb.APIResponse{Responsemessage: "N/A", Responsecode: 1}, nil
 	}
 	// get the size
 	size := fi.Size()

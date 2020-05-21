@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-package grpcghost;
 
 service ghost{
 	rpc diskcheck(diskRequest)               returns (APIResponse);
@@ -9,6 +8,7 @@ service ghost{
 	rpc putpanicflag(Empty)					 returns (APIResponse);
 	rpc cleanup(Empty)					     returns (APIResponse);
 	rpc dryrun(ghostRequest)                 returns (APIResponse);
+	rpc execute(ghostRequest)                returns (stream APIMessage);
 	rpc executeNohup(ghostRequest)           returns (APIResponse);
 	rpc interactive(interactiveRequest)      returns (APIResponse);
 	rpc rowcount(definitionRequest)          returns (APIResponse);
